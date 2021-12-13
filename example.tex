@@ -1,0 +1,63 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{xcolor}         % For beautiful colors
+\usepackage[hmargin=1.2cm,vmargin=1.5cm]{geometry}
+
+\usepackage{amssymb}        % Not mandatory (already imported by rodinlisting)
+\usepackage{listings}       % Idem
+
+\input{rodinlisting}
+
+% Define some colors for the listings : green (comment) and purple
+% (keywords)
+\definecolor{someGreen}{RGB}{63,127,95}
+\definecolor{somePurple}{RGB}{127,0,85}
+\definecolor{someBlue}{RGB}{0,59,127}
+
+% General listing style
+\lstset{
+    numbers=left,
+    frame=single,
+    mathescape=true,
+    breaklines=true,
+    escapeinside={(*}{*)}, % For additional styling
+    commentstyle=\color{someGreen}\itshape,
+    keywordstyle=\color{somePurple}\bfseries,
+    keywordstyle=[2]{\color{someBlue}\bfseries\itshape}
+}
+
+
+\begin{document}
+
+\begin{lstlisting}[language=eventb]
+MACHINE (* \textbf{M} *)
+VARIABLES $x$, $y$
+INVARIANTS
+ inv1: $x \in \mathbb{Z}$
+ inv2: $y \in \mathbb{N}$
+ inv3: $x + y > 0$
+ thm1: $x \geq - y$ theorem
+EVENTS
+ (*\textbf{INITIALISATION}*)
+ THEN
+  act1: $x := 0$
+  act2: $y :\mid y' > 1$
+ END
+
+ (*\textbf{Progress}*) ordinary
+ WHERE
+  grd1: $y \geq 0$
+ THEN
+  act1: $x := x + 1$
+  act2: $y := y - 1$
+ END
+END
+\end{lstlisting}
+
+\end{document}
+
+
+
