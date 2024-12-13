@@ -1,0 +1,54 @@
+% ------------------------------------------------------------------------
+% rodinconfig.tex
+% ------------------------------------------------------------------------
+%  Copyright (C) 2019-2024  G. Dupont
+%  
+%  This package is free software: you can redistribute it and/or modify
+%  it under the terms of the GNU General Public License as published by
+%  the Free Software Foundation, either version 3 of the License, or
+%  (at your option) any later version.
+%  
+%  This package is distributed in the hope that it will be useful,
+%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%  GNU General Public License for more details.
+%  
+%  You should have received a copy of the GNU General Public License
+%  along with this package.  If not, see <https://www.gnu.org/licenses/>.
+% ------------------------------------------------------------------------
+% This file is an optional configuration file to be used with rodinlisting
+% ------------------------------------------------------------------------
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[scaled=0.85]{beramono} %% For nicer TrueType fonts
+
+
+% Define some colors for the listings : green (comment) and purple
+% (keywords)
+\definecolor{someGreen}{RGB}{63,127,95}
+\definecolor{somePurple}{RGB}{127,0,85}
+\definecolor{someBlue}{RGB}{0,59,127}
+\definecolor{someOtherBlue}{RGB}{20,20,255}
+
+% General listing style
+\lstset{
+    %numbers=left,
+    frame=single,
+    %float,
+    mathescape=true,
+    breaklines=true,
+    escapeinside={(*}{*)},
+    basicstyle=\footnotesize\ttfamily,
+    commentstyle=\color{someGreen}\itshape,
+    keywordstyle=\color{somePurple}\bfseries,
+    keywordstyle=[2]{\color{someBlue}\bfseries\itshape},
+    framesep=4pt,
+    belowskip=0pt,
+    aboveskip=0pt,
+    % A few literals for accents (you should probably put more...)
+    literate={é}{{\'e}}1 {è}{{\`e}}1 {ù}{{\`u}}1 {à}{{\`a}}1 {É}{{\'E}}1 {À}{{\`A}}1 {î}{{\^i}}1
+}
+
+
+
+
